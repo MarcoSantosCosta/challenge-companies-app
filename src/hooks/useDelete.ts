@@ -13,8 +13,8 @@ export function useDelete<T>(resource: string) {
     setIsLoading(true);
     setError(null);
 
-    performDelete<T>(resource, id)
-      .then((response: Company) => {
+    performDelete(resource, id)
+      .then((response) => {
         setSuccess(true);
         console.log(response);
       })

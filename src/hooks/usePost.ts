@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { ErrorResponse } from '../@types/ErrorResponse';
-import execute from '../services/companySuppliersAPI/ApiPost';
+import { performPost } from '../services/companySuppliersAPI/ApiPost';
 
 export function usePost<T>(resource: string) {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +12,7 @@ export function usePost<T>(resource: string) {
     setIsLoading(true);
     setError(null);
 
-    execute<T>(resource, dados)
+    performPost<T>(resource, dados)
       .then(() => {
         setSuccess(true);
         console.log('asdasdasdasdasdasdasd');

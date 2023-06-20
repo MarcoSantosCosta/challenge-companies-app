@@ -14,8 +14,8 @@ export function useGet<T>(resource: string) {
     setIsLoading(true);
     setError(null);
 
-    performGet<T>(resource, id)
-      .then((response: Company) => {
+    performGet(resource, id)
+      .then((response) => {
         setSuccess(true);
         console.log(response);
         setData(response as Company);

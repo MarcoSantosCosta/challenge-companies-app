@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from './config/configs';
 
-export default async function execute<T>(
+export default async function performPut<T>(
   resource: string,
   id: number,
   data: T
@@ -10,5 +10,8 @@ export default async function execute<T>(
     `${BASE_URL}/${resource}/${id}`,
     data
   );
+
   return response.data;
 }
+
+export { performPut };
