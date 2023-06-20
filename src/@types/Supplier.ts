@@ -6,5 +6,6 @@ export interface Supplier {
   name: string;
   email: string;
   birthDate: Date;
+  rg: string;
   address: Address;
 }
