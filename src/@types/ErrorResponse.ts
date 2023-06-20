@@ -1,6 +1,6 @@
 export interface ErrorResponse {
   error: string;
-  errorsMessages: Array<fieldsErrors>;
+  errorMessages: Array<fieldsErrors>;
 }
 
 export interface fieldsErrors {

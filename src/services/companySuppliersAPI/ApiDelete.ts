@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { BASE_URL } from './config/configs';
 
-export default async function execute<T>(resource: string, id: number) {
-  const response = await axios.delete<any>(`${BASE_URL}/${resource}/${id}`);
+async function performDelete(resource: string, id: number) {
+  const response = await axios.delete<unknown>(`${BASE_URL}/${resource}/${id}`);
   return response.data;
 }
+
+export { performDelete };
