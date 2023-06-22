@@ -8,17 +8,17 @@ export function useGet<T>(resource: string) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>();
   const [success, setSuccess] = useState<boolean | null>();
-  const [data, setData] = useState<Company | null>();
+  const [data, setData] = useState<T | null>();
 
-  async function perform(id?: number) {
+  async function perform(id?: number, op?: string) {
     setIsLoading(true);
     setError(null);
 
-    performGet(resource, id)
+    performGet(resource, id, op)
       .then((response) => {
         setSuccess(true);
         console.log(response);
-        setData(response as Company);
+        setData(response as T);
       })
       .catch(({ response }: AxiosError) => {
         const errorResponse = response?.data as ErrorResponse;

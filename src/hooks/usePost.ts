@@ -7,22 +7,15 @@ export function usePost<T>(resource: string) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>();
   const [success, setSuccess] = useState<boolean | null>();
+  // const [data, setData] = useState<T | null>();
 
-  async function perform(dados: T) {
+  async function perform(dados: T, id?: number, op?: string) {
     setIsLoading(true);
     setError(null);
 
-    performPost<T>(resource, dados)
+    performPost<T>(resource, dados, id, op)
       .then(() => {
         setSuccess(true);
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
-        console.log('asdasdasdasdasdasdasd');
       })
       .catch(({ response }: AxiosError) => {
         const errorResponse = response?.data as ErrorResponse;

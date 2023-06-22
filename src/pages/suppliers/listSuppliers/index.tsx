@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { GridColDef } from '@mui/x-data-grid';
 import React, { useEffect } from 'react';
 import { Supplier } from '../../../@types/Supplier';
-import { DataTable } from '../../../components/dataTable';
+import { DataTable } from '../../../components/atoms/dataTable';
 import { useGet } from '../../../hooks/useGet';
 
 const ListSupplier: React.FC = () => {
@@ -10,7 +10,11 @@ const ListSupplier: React.FC = () => {
 
   useEffect(() => {
     perform();
-  });
+  }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', type: 'number' },
@@ -22,12 +26,6 @@ const ListSupplier: React.FC = () => {
       headerName: 'CEP',
       width: 130,
       valueGetter: (params) => params.row.address?.zipCode || '',
-    },
-    {
-      field: 'address.zipCode',
-      headerName: 'CEP',
-      width: 130,
-      valueGetter: (params) => params.row.address?.state || '',
     },
   ];
   return (
