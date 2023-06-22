@@ -9,11 +9,11 @@ export function usePost<T>(resource: string) {
   const [success, setSuccess] = useState<boolean | null>();
   // const [data, setData] = useState<T | null>();
 
-  async function perform(dados: T) {
+  async function perform(dados: T, id?: number, op?: string) {
     setIsLoading(true);
     setError(null);
 
-    performPost<T>(resource, dados)
+    performPost<T>(resource, dados, id, op)
       .then(() => {
         setSuccess(true);
       })

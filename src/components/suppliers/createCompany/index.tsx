@@ -141,7 +141,7 @@ const CreateCompany: React.FC = () => {
                 helperText={errors.address?.city && 'Cidade é obrigatória'}
               />
               <FormControl>
-                <InputLabel id="state">Estado</InputLabel>
+                <InputLabel id="state">Age</InputLabel>
                 <Select
                   {...register('address.state', { required: true })}
                   label="Estado"

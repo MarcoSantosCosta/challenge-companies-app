@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGet } from '../../../hooks/useGet';
 import { Company } from '../../../@types/Company';
@@ -6,10 +6,11 @@ import { Box, Button, Card } from '@mui/material';
 import ProfileCard from '../../../components/profileCard';
 import { DataTable } from '../../../components/atoms/dataTable';
 import DeleteCompany from '../../../components/company/deleteCompany';
-import ListSupplier from '../listSuppliers';
+import ListSupplier from '../../suppliers/listSuppliers';
 import Loading from '../../../components/atoms/loading/loading';
 import { GridColDef } from '@mui/x-data-grid';
 import { Supplier } from '../../../@types/Supplier';
+import { InsertSupplier } from '../../../components/company/insertSupplier';
 
 const CompanyDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,11 +38,8 @@ const CompanyDetails: React.FC = () => {
       const convertedId = parseInt(id);
       perform(convertedId);
       getsuppliers.perform(convertedId, 'suppliers');
-      console.log(data);
-      console.log(getsuppliers.data);
     }
   }, []);
-
   return (
     <Box
       sx={{
@@ -54,20 +52,24 @@ const CompanyDetails: React.FC = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <Box sx={{ width: '80%' }}>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'right',
-              alignItems: 'rigth',
-              marginBottom: '20px',
-              gap: 1,
-            }}>
-            <DeleteCompany id={data?.id} />
-            <Button onClick={() => navigate(`/company/${id}/edit`)} variant="contained">
-              Editar
-            </Button>
-          </Box>
+        <Box sx={{ width: '80%', display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {data?.id ? (
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'right',
+                alignItems: 'rigth',
+                gap: 1,
+              }}>
+              <DeleteCompany id={data?.id} />
+              <Button onClick={() => navigate(`/company/${id}/edit`)} variant="contained">
+                Editar
+              </Button>
+              <InsertSupplier companyId={data?.id} />
+            </Box>
+          ) : (
+            ''
+          )}
           <Card>
             <ProfileCard company={data} />
           </Card>
