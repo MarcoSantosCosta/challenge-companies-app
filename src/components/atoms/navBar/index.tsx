@@ -1,10 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { routes } from '../../routes';
 
 const NavBar: React.FC = () => {
-  const navItems = routes.routes[0].children;
+  const navItems = [
+    {
+      name: 'Empresas',
+      path: 'company',
+    },
+    {
+      name: 'Fornecedores',
+      path: 'supplier',
+    },
+  ];
 
   return (
     <AppBar position="static">
@@ -15,21 +22,14 @@ const NavBar: React.FC = () => {
         {navItems ? (
           navItems.map((item: any) => {
             return (
-              <Button
-                color="inherit"
-                component={Link}
-                to={item.path}
-                // eslint-disable-next-line prettier/prettier
-                key={item.path}
-              >
-                {item.path === '/' ? 'Home' : item.path.substr(1).toUpperCase()}{' '}
+              <Button color="inherit" component={Link} to={item.path} key={item.path}>
+                {item.name}
               </Button>
             );
           })
         ) : (
           <Typography variant="body1">No items</Typography>
         )}
-        ;
       </Toolbar>
     </AppBar>
   );

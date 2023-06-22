@@ -7,13 +7,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "react-hooks",
-    "prettier",
-    "import"
-  ],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "prettier", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

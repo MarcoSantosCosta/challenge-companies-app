@@ -1,11 +1,13 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import CreateCompany from '../components/forms/createCompany';
+import CreateCompany from '../components/company/createCompany';
 import CreateSupplier from '../components/forms/createSupplier';
 import CompanyDetails from '../pages/companies/companiesDetails';
-import ListCompanies from '../pages/companies/listCompanies';
-import ListSupplier from '../pages/companies/listSuppliers';
+
+import ListSupplier from '../pages/suppliers/listSuppliers';
 import Home from '../pages/home';
+import ListCompanies from '../components/company/listCompanies';
+import UpadateCompany from '../components/company/updateCompany';
 
 export const routes = createBrowserRouter([
   {
@@ -14,7 +16,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <Navigate to="/company" />,
       },
       {
         path: '/company',
@@ -27,6 +29,10 @@ export const routes = createBrowserRouter([
       {
         path: '/company/add',
         element: <CreateCompany />,
+      },
+      {
+        path: '/company/:id/edit',
+        element: <UpadateCompany />,
       },
       {
         path: 'supplier',

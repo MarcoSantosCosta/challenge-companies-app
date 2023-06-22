@@ -1,17 +1,11 @@
 import React from 'react';
+import './index.css';
+
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import './index.css';
 import { routes } from './routes';
 
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
   <React.StrictMode>
