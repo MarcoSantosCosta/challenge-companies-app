@@ -55,7 +55,7 @@ export const InsertSupplier = (props: InsertSupplierProps) => {
     }
   }, [post.error, post.success]);
 
-  const handleInsert = (id: number) => {
+  const handleInsert = () => {
     if (props.companyId && supplier?.id) {
       console.log({ supplierId: supplier.id });
       post.perform({ supplierId: supplier.id }, props.companyId, 'supplier');
