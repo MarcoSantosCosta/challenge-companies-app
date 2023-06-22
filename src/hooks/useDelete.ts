@@ -1,10 +1,9 @@
 import { AxiosError } from 'axios';
 import { useState } from 'react';
-import { Company } from '../@types/Company';
 import { ErrorResponse } from '../@types/ErrorResponse';
 import { performDelete } from '../services/companySuppliersAPI/ApiDelete';
 
-export function useDelete<T>(resource: string) {
+export function useDelete(resource: string) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | null>();
   const [success, setSuccess] = useState<boolean | null>();
@@ -14,9 +13,8 @@ export function useDelete<T>(resource: string) {
     setError(null);
 
     performDelete(resource, id)
-      .then((response) => {
+      .then(() => {
         setSuccess(true);
-        console.log(response);
       })
       .catch(({ response }: AxiosError) => {
         const errorResponse = response?.data as ErrorResponse;

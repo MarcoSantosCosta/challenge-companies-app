@@ -36,15 +36,24 @@
     "react/require-default-props": "off",
     "no-shadow": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ],
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".tsx", ".ts", ".js", ".jsx"]
+        "extensions": [
+          ".tsx",
+          ".ts",
+          ".js",
+          ".jsx"
+        ]
       }
     ],
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
     "prettier/prettier": [
       "error",
       {
@@ -99,7 +108,12 @@
         "rootPathSuffix": "src"
       },
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
       }
     }
   }

@@ -5,12 +5,13 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import NavBar from './components/navBar';
+import NavBar from './components/atoms/navBar';
 
 import { ptBR as corePtBR } from '@mui/material/locale';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ptBR as dataGridPtBR } from '@mui/x-data-grid';
 
+import '@fontsource/public-sans';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -23,7 +24,7 @@ const theme = createTheme(
     },
   },
   dataGridPtBR, // x-data-grid translations
-  corePtBR // core translations
+  corePtBR // core translationsO
 );
 
 const App: React.FC = () => {
