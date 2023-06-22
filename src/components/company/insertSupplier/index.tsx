@@ -102,7 +102,7 @@ export const InsertSupplier = (props: InsertSupplierProps) => {
                 <Button
                   color="primary"
                   onClick={() => {
-                    handleInsert(supplier?.id);
+                    handleInsert();
                   }}>
                   Inserir
                 </Button>
